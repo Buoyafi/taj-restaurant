@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph — controls preview on WhatsApp, Twitter, Facebook etc -->
+    <meta property="og:title" content="TAJ Shawarma — Order Fresh & Delicious Shawarma">
+    <meta property="og:description" content="Order hot shawarma, grilled chicken, and our best delicacies. Fresh, bold and made for you in the heart of Abeokuta.">
+    <meta property="og:image" content="https://tajshawarmahub.com/images/logo.png">
+    <meta property="og:url" content="https://tajshawarmahub.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TAJ Shawarma">
+
+    <!-- WhatsApp specifically uses these -->
+    <meta name="description" content="Order hot shawarma, grilled chicken, and our best delicacies. Fresh, bold and made for you in the heart of Abeokuta.">
+
+    <!-- Twitter/X card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TAJ Shawarma — Order Fresh & Delicious Shawarma">
+    <meta name="twitter:description" content="Order hot shawarma, grilled chicken, and our best delicacies. Fresh, bold and made for you in the heart of Abeokuta.">
+    <meta name="twitter:image" content="https://tajshawarmahub.com/images/logo.png">
+    
+    <!-- Match status bar and browser chrome to site background -->
+    <meta name="theme-color" content="#111110">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>TAJ Shawarma</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="android-chrome" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="android-chrome" sizes="512x512" href="/android-chrome-512x512.png">
+
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,700;1,300;1,700&family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAVBAR -->
+  <header class="navbar">
+    <a href="#home" class="navbar-brand">
+      <img src="images/logo.png" alt="Taj Shawarma Logo" class="logo">
+      <span class="brand-name">TAJ Shawarma</span>
+      
+    </a>
+
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#footer-contact">Contact</a>
+    </nav>
+
+    <!-- HAMBURGER BUTTON -->
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- MOBILE NAV OVERLAY -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+    <!-- MOBILE NAV DROPDOWN -->
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#home" class="mobile-nav-link" onclick="closeHamburger()">Home</a>
+      <a href="#menu" class="mobile-nav-link" onclick="closeHamburger()">Menu</a>
+      <a href="#footer-contact" class="mobile-nav-link" onclick="closeHamburger()">Contact</a>
+    </div>
+  </header>
+
+<!-- HERO SECTION -->
+<!-- HERO SLIDER SECTION -->
+<section id="home" class="hero-slider">
+
+  <div class="slides">
+    <div class="slide active">
+      <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?auto=format&fit=crop&w=1350&q=80" alt="Delicious shawarma">
+      <div class="hero-text">
+        <h2>Fresh, Bold & Delicious Shawarma</h2>
+        <p>Order hot shawarma delivered to you in minutes.</p>
+        <a href="#menu" class="btn">View Menu</a>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="https://plus.unsplash.com/premium_photo-1679434137712-8b25bb94301a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Friends eating together">
+      <div class="hero-text">
+        <h2>Enjoy Shawarma with Friends</h2>
+        <p>Delicious meals for everyone.</p>
+        <a href="#menu" class="btn">View Menu</a>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1350&q=80" alt="Happy diners enjoying food">
+      <div class="hero-text">
+        <h2>Happy Moments, Great Food</h2>
+        <p>Join us for a delicious dining experience.</p>
+        <a href="#menu" class="btn">View Menu</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay content
+  <div class="hero-overlay"></div>
+  <div class="hero-text">
+    <span class="hero-badge">🔥 Hot & Fresh Daily</span>
+    <h2>Fresh, Bold and Delicious Shawarma</h2>
+    <p>Order hot shawarma delivered to you in minutes.</p>
+    <a href="#menu" class="btn">View Menu</a>
+  </div> -->
+
+  <!-- Dot indicators -->
+  <div class="slider-dots">
+    <span class="dot active" onclick="goToSlide(0)"></span>
+    <span class="dot" onclick="goToSlide(1)"></span>
+    <span class="dot" onclick="goToSlide(2)"></span>
+  </div>
+
+  <!-- Arrow controls -->
+  <button class="slider-arrow left" onclick="changeSlide(-1)">&#8249;</button>
+  <button class="slider-arrow right" onclick="changeSlide(1)">&#8250;</button>
+
+</section>
+
+<!-- MENU SECTION -->
+<section id="menu" class="menu">
+
+  <div class="section-label">What We Serve</div>
+  <h2>Our Full Menu</h2>
+
+  <div class="menu-nav">
+    <a href="#shawarma" class="menu-nav-btn">Shawarma</a>
+    <a href="#toast" class="menu-nav-btn">Toast</a>
+    <a href="#grilled-chicken" class="menu-nav-btn">Grilled Chicken</a>
+    <a href="#chicken-wraps" class="menu-nav-btn">Wraps</a>
+    <a href="#crispy-chicken" class="menu-nav-btn">Crispy Chicken</a>
+    <a href="#quesadillas" class="menu-nav-btn">Quesadillas</a>
+    <a href="#noodles-eggs" class="menu-nav-btn">Noodles</a>
+    <a href="#breakfast-delight" class="menu-nav-btn">Breakfast</a>
+    <a href="#smile-grill" class="menu-nav-btn">Smile Grill</a>
+    <a href="#drinks" class="menu-nav-btn">Drinks</a>
+  </div>
+
+
+    <!-- SHAWARMA -->
+  <div class="menu-category" id="shawarma">
+    <div class="category-header">
+      <h3>Shawarma</h3>
+    </div>
+    <ul>
+      <li class="has-img" style="--item-bg: url('https://i.ibb.co/KjhT3j0z/Chicken-Shawarma.jpg')"
+        data-name="Chicken Shawarma Single" data-price="2200">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Chicken Shawarma <span class="item-variant">Single</span></span>
+          <span class="item-price">₦2,200</span>
+        </div>
+        <p class="item-desc">Thinly sliced marinated chicken with authentic spices and creamy tahini sauce</p>
+        <div class="item-add-btn" data-price="₦2,200">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+
+      <li class="has-img" style="--item-bg: url('https://images.bolt.eu/store/2024/2024-05-23/8cba39e0-ebcb-4081-8398-24c038b699c0.jpeg')"
+        data-name="Chicken Shawarma Double" data-price="2700">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Chicken Shawarma <span class="item-variant">Double</span></span>
+          <span class="item-price">₦2,700</span>
+        </div>
+        <p class="item-desc">Double portion with same authentic flavour, twice the satisfaction</p>
+        <div class="item-add-btn" data-price="₦2,700">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+
+      <li class="has-img" style="--item-bg: url('https://images.unsplash.com/photo-1719282432114-45fd6c6df642?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
+        data-name="Beef Shawarma Single" data-price="2200">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Beef Shawarma <span class="item-variant">Single</span></span>
+          <span class="item-price">₦2,200</span>
+        </div>
+        <p class="item-desc">Prime beef strips slow-roasted with middle-eastern herbs and fresh vegetables</p>
+        <div class="item-add-btn" data-price="₦2,200">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+
+      <li class="has-img" style="--item-bg: url('https://i.ibb.co/Y7QQLrrd/Beef-Shawarma.jpg')"
+        data-name="Beef Shawarma Double" data-price="2500">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Beef Shawarma <span class="item-variant">Double</span></span>
+          <span class="item-price">₦2,500</span>
+        </div>
+        <p class="item-desc">Double portion of slow-roasted prime beef</p>
+        <div class="item-add-btn" data-price="₦2,500">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+
+      <li class="has-img" style="--item-bg: url('https://tse3.mm.bing.net/th/id/OIP.FWAiS4ijzWME-Ws7s1Ph1wHaHa?rs=1&pid=ImgDetMain&o=7&rm=3')"
+        data-name="Special Shawarma Mix" data-price="2500">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Special Shawarma Mix</span>
+          <span class="item-price">₦2,500</span>
+        </div>
+        <p class="item-desc">Chicken + Beef blend (the best of both worlds)</p>
+        <div class="item-add-btn" data-price="₦2,500">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- TOAST -->
+  <div class="menu-category" id="toast">
+    <div class="category-header">
+      <h3>Toast</h3>
+    </div>
+    <ul>
+      <li class="has-img" style="--item-bg: url('https://images.unsplash.com/photo-1617979417434-d80fbd960c90?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
+        data-name="Toast with Eggs" data-price="800">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Toast with Eggs</span>
+          <span class="item-price">₦800</span>
+        </div>
+        <p class="item-desc">Double layered toasted bread with fluffy scrambled eggs</p>
+        <div class="item-add-btn" data-price="₦800">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+
+      <li class="has-img" style="--item-bg: url('https://i.ibb.co/bgL2cFb5/Toast.jpg')"
+        data-name="Toast with Chicken" data-price="2000">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Toast with Chicken</span>
+          <span class="item-price">₦2,000</span>
+        </div>
+        <p class="item-desc">Shredded grilled chicken breast inside crisp buttery toast</p>
+        <div class="item-add-btn" data-price="₦2,000">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+
+      <li class="has-img" style="--item-bg: url('https://images.unsplash.com/photo-1528736235302-52922df5c122?auto=format&fit=crop&w=600&q=80')"
+        data-name="Toast with Cheese" data-price="2500">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Toast with Cheese</span>
+          <span class="item-price">₦2,500</span>
+        </div>
+        <p class="item-desc">Premium melted cheddar and mozzarella blend on golden toast</p>
+        <div class="item-add-btn" data-price="₦2,500">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- GRILLED CHICKEN -->
+  <div class="menu-category" id="grilled-chicken">
+    <div class="category-header">
+      <h3>Grilled Chicken</h3>
+    </div>
+    <ul>
+      <li class="has-img" style="--item-bg: url('https://tse3.mm.bing.net/th/id/OIP.ZSlvjta1sApGPjA5KVGHiwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3')"
+        data-name="Freshly Grilled Chicken" data-price="3500">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Freshly Grilled Chicken</span>
+          <span class="item-price">₦3,500</span>
+        </div>
+        <p class="item-desc">Signature spice rub, slow-grilled over open flames</p>
+        <div class="item-add-btn" data-price="₦3,500">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+
+      <li class="has-img" style="--item-bg: url('https://i.ibb.co/8nGn46Mm/Chicken-and-Chips.jpg')"
+        data-name="Grilled Chicken + Chips" data-price="6000">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Grilled Chicken + Chips</span>
+          <span class="item-price">₦6,000</span>
+        </div>
+        <p class="item-desc">Succulent quarter chicken served with crispy salted fries</p>
+        <div class="item-add-btn" data-price="₦6,000">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- CHICKEN WRAPS -->
+  <div class="menu-category" id="chicken-wraps">
+    <div class="category-header">
+      <h3>Chicken Wraps</h3>
+    </div>
+    <ul>
+      <li class="has-img" style="--item-bg: url('https://i.ibb.co/hRXfQtCL/Chicken-Wrap.jpg')"
+        data-name="Chicken Wrap" data-price="3500">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Chicken Wrap</span>
+          <span class="item-price">₦3,500</span>
+        </div>
+        <p class="item-desc">Classic rolled perfection</p>
+        <div class="item-add-btn" data-price="₦3,500">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+
+      <li class="has-img" style="--item-bg: url('https://tse3.mm.bing.net/th/id/OIP.bn5Z5ETK8wUtoXwpkFj-nwHaI9?rs=1&pid=ImgDetMain&o=7&rm=3')"
+        data-name="Wrap with Cheese" data-price="4500">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Wrap with Cheese</span>
+          <span class="item-price">₦4,500</span>
+        </div>
+        <p class="item-desc">Extra melted cheddar layer</p>
+        <div class="item-add-btn" data-price="₦4,500">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- CRISPY CHICKEN -->
+  <div class="menu-category" id="crispy-chicken">
+    <div class="category-header">
+      <h3>Crispy Chicken</h3>
+    </div>
+    <ul>
+      <li class="has-img" style="--item-bg: url('https://media.istockphoto.com/id/178381854/photo/three-pieces-of-fries-chicken-stacked-on-small-plate.jpg?s=170667a&w=0&k=20&c=hpvVls46t-u62W-ro908dzXBl8lhlgNxkOycTzVu4TY=')"
+        data-name="Golden Pieces" data-price="4000">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Golden Pieces</span>
+          <span class="item-price">₦4,000</span>
+        </div>
+        <p class="item-desc">Secret blend of herbs, fried to a perfect golden crust</p>
+        <div class="item-add-btn" data-price="₦4,000">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+
+      <li class="has-img" style="--item-bg: url('https://media.istockphoto.com/id/1339624193/photo/chicken-strips.jpg?s=612x612&w=0&k=20&c=Z1i3xsG1bmA7UM1FQBGSyPjNAF7vPN9T5usJ_Jv8PGA=')"
+        data-name="Crispy Chicken + Fries Combo" data-price="6500">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Crispy Chicken + Fries Combo</span>
+          <span class="item-price">₦6,500</span>
+        </div>
+        <p class="item-desc">Served with garlic dip</p>
+        <div class="item-add-btn" data-price="₦6,500">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- QUESADILLAS -->
+  <div class="menu-category" id="quesadillas">
+    <div class="category-header">
+      <h3>Quesadillas</h3>
+    </div>
+    <ul>
+      <li class="has-img" style="--item-bg: url('https://i.ibb.co/9zf8j9H/Quesadillas.jpg')"
+        data-name="Chicken Quesadilla" data-price="5000">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Chicken Quesadilla</span>
+          <span class="item-price">₦5,000</span>
+        </div>
+        <p class="item-desc">Grilled seasoned chicken in toasted flour tortilla with melted cheese</p>
+        <div class="item-add-btn" data-price="₦5,000">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+
+      <li class="has-img" style="--item-bg: url('https://images.unsplash.com/photo-1683314573424-b0da0c795a07?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
+        data-name="Extra Cheese Add-on" data-price="1500">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Extra Cheese Add-on</span>
+          <span class="item-price">₦1,500</span>
+        </div>
+        <div class="item-add-btn" data-price="₦1,500">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- NOODLES & EGGS -->
+  <div class="menu-category" id="noodles-eggs">
+    <div class="category-header">
+      <h3>Noodles + Eggs</h3>
+    </div>
+    <ul>
+      <li class="has-img" style="--item-bg: url('https://i.ibb.co/nskr1y2n/Noodles-and-eggs.jpg')"
+        data-name="Spiced Stir-fried Noodles with Omelette" data-price="1500">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Spiced Stir-fried Noodles with Omelette</span>
+          <span class="item-price">₦1,500</span>
+        </div>
+        <div class="item-add-btn" data-price="₦1,500">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- BREAKFAST DELIGHT -->
+  <div class="menu-category" id="breakfast-delight">
+    <div class="category-header">
+      <h3>Breakfast Delight</h3>
+    </div>
+    <ul>
+      <li class="has-img" style="--item-bg: url('https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=600&q=80')"
+        data-name="Pancakes with Eggs Sauce" data-price="2700">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Pancakes with Eggs Sauce</span>
+          <span class="item-price">₦2,700</span>
+        </div>
+        <div class="item-add-btn" data-price="₦2,700">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- SMILE GRILL -->
+  <div class="menu-category" id="smile-grill">
+    <div class="category-header">
+      <h3>Smile Grill</h3>
+    </div>
+    <ul>
+      <li class="has-img" style="--item-bg: url('https://i.ibb.co/5g3PgL83/Grilled-chicken.jpg')"
+        data-name="Grill Chicken" data-price="3500">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Grill Chicken</span>
+          <span class="item-price">₦3,500</span>
+        </div>
+        <p class="item-desc">Tender marinated chicken lap flame-grilled with bold smoky taste</p>
+        <div class="item-add-btn" data-price="₦3,500">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+
+      <li class="has-img" style="--item-bg: url('https://tse1.mm.bing.net/th/id/OIP.4eDwaq710LGubCPSLOVScQHaHa?rs=1&pid=ImgDetMain&o=7&rm=3')"
+        data-name="Full Chicken" data-price="15000">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Full Chicken</span>
+          <span class="item-price">₦15,000</span>
+        </div>
+        <p class="item-desc">Juicy flame-grilled full chicken with rich smoky flavour</p>
+        <div class="item-add-btn" data-price="₦15,000">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+
+      <li class="has-img" style="--item-bg: url('https://i.ibb.co/tPp9rr2Q/Fish-platter.jpg')"
+        data-name="Grill Fish Platter" data-price="3500">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Grill Fish Platter</span>
+          <span class="item-price">₦3,500</span>
+        </div>
+        <p class="item-desc">Flame-grilled fish with chips, sweet plantain, and spicy pepper sauce</p>
+        <div class="item-add-btn" data-price="₦3,500">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+
+      <li class="has-img" style="--item-bg: url('https://i.ibb.co/0Vsn3BzD/Platter.jpg')"
+        data-name="Platter" data-price="35000">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Platter</span>
+          <span class="item-price">₦35,000</span>
+        </div>
+        <p class="item-desc">Loaded platter with grilled chicken, fried bites, sausages, and peppered sides</p>
+        <div class="item-add-btn" data-price="₦35,000">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+      
+      <li class="has-img" style="--item-bg: url('https://i0.wp.com/palatablepastime.com/wp-content/uploads/2019/01/ethiopian-beef-siga-tibs-sq.jpg?w=1650&ssl=1')"
+        data-name="Plate of Asun" data-price="2000">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Plate of Asun</span>
+          <span class="item-price">₦2,000</span>
+        </div>
+        <p class="item-desc">Spicy smoky grilled meat tossed in rich pepper sauce</p>
+        <div class="item-add-btn" data-price="₦2,000">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+
+     </ul>
+  </div>
+  
+  <!-- DRINKS -->
+  <div class="menu-category" id="drinks">
+    <div class="category-header">
+      <h3>Signature and Soft Drinks</h3>
+    </div>
+    <ul>
+      <li class="has-img" style="--item-bg: url('https://i.ibb.co/DDDJ3z2R/Taj-juice.jpg')"
+        data-name="Taj Juice" data-price="1500">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Taj Juice</span>
+          <span class="item-price">₦1,500</span>
+        </div>
+        <div class="item-add-btn" data-price="₦1,500">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+
+      <li class="has-img" style="--item-bg: url('https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80')"
+        data-name="Iced Coffee" data-price="2000">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Iced Coffee</span>
+          <span class="item-price">₦2,000</span>
+        </div>
+        <div class="item-add-btn" data-price="₦2,000">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+
+      <li class="has-img" style="--item-bg: url('https://images.unsplash.com/photo-1515316416554-1af1fbca57a2?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
+        data-name="Iced Chocolate" data-price="1500">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Iced Chocolate</span>
+          <span class="item-price">₦1,500</span>
+        </div>
+        <div class="item-add-btn" data-price="₦1,500">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+
+      <li class="has-img" style="--item-bg: url('https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
+        data-name="Hot Chocolate" data-price="700">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Hot Chocolate</span>
+          <span class="item-price">₦700</span>
+        </div>
+        <div class="item-add-btn" data-price="₦700">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+
+      <li class="has-img" style="--item-bg: url('https://images.unsplash.com/photo-1610137312377-f2334bc3b279?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
+        data-name="Hot Tea" data-price="700">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Hot Tea</span>
+          <span class="item-price">₦700</span>
+        </div>
+        <div class="item-add-btn" data-price="₦700">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+
+      <li class="has-img" style="--item-bg: url('https://blog.overnightprints.com/wp-content/uploads/2017/01/Coca-Cola-bottle_400x600.jpg')"
+        data-name="Coke" data-price="500">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Coke</span>
+          <span class="item-price">₦500</span>
+        </div>
+        <div class="item-add-btn" data-price="₦500">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+
+      <li class="has-img" style="--item-bg: url('https://tse3.mm.bing.net/th/id/OIP.O85fAbVot7SXPmT4Q4_SYwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3')"
+        data-name="Pepsi" data-price="500">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Pepsi</span>
+          <span class="item-price">₦500</span>
+        </div>
+        <div class="item-add-btn" data-price="₦500">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+
+      <li class="has-img" style="--item-bg: url('https://5.imimg.com/data5/SELLER/Default/2022/7/HQ/IH/YD/145631512/51k6u9u3nhl-sl1500--1000x1000.jpg')"
+        data-name="Fanta" data-price="500">
+        <div class="item-body">
+        <div class="item-top">
+          <span class="item-name">Fanta</span>
+          <span class="item-price">₦500</span>
+        </div>
+        <div class="item-add-btn" data-price="₦500">
+          <div class="qty-box">
+            <button class="qty-minus" style="display:none">−</button>
+            <span class="qty-count" style="display:none">0</span>
+            <button class="qty-plus">+</button>
+          </div>
+        </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+
+    <div class="footer-inner">
+
+        <div class="footer-brand">
+            <p class="footer-logo">Taj Shawarma</p>
+            <p class="footer-tagline">Flame-seared perfection in the heart of Abeokuta. Fresh, bold, and made for you.</p>
+            <div id="footer-contact">
+              <p class="footer-contact-label">Contact Us</p>
+              <div class="footer-socials">
+                  <a href="https://wa.me/2347088639785" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+              </div>
+          </div>
+        </div>
+
+        <div class="footer-links">
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Order</h4>
+                <ul>
+                    <li><a href="#shawarma">Shawarma</a></li>
+                    <li><a href="#grilled-chicken">Grilled Chicken</a></li>
+                    <li><a href="#drinks">Drinks</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-info">
+            <div class="footer-info-block">
+                <h4><i class="fa-solid fa-location-dot"></i> Location</h4>
+                <p>Ogun State, Abeokuta, Nigeria</p>
+                <a href="https://maps.app.goo.gl/V3oubwwoCo2d2vrn6?g_st=iw" target="_blank" class="footer-directions">
+                    <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
+                </a>
+            </div>
+            <div class="footer-info-block">
+                <h4><i class="fa-solid fa-clock"></i> Opening Hours</h4>
+                <p>Monday – Sunday</p>
+                <p class="footer-hours">8:00 AM – 9:00 PM</p>
+            </div>
+        </div>
+
+        <div class="footer-cta">
+            <h4>Order Directly</h4>
+            <p>Skip the queue here -> send your order straight to us on WhatsApp.</p>
+            <a href="https://wa.me/2347088639785?text=Hello%20TAJ%20Shawarma,%20I%20want%20to%20order" target="_blank" class="footer-order-btn">
+                <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
+            </a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 Taj Shawarma, Abeokuta. All rights reserved.</p>
+    </div>
+
+</footer>
+
+<script src="script.js"></script>
+
+<!-- CART BAR -->
+<div class="cart-bar" id="cartBar">
+  <div class="cart-bar-left">
+    <span class="cart-bar-count" id="cartBarCount">0</span>
+    <span class="cart-bar-label">items in cart</span>
+  </div>
+  <button class="cart-bar-btn" onclick="openCart()">View Cart</button>
+</div>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<div class="cart-drawer" id="cartDrawer">
+
+  <div class="cart-drawer-header">
+    <h3>Your Order</h3>
+    <button class="cart-close" onclick="closeCart()">&#10005;</button>
+  </div>
+
+  <div class="cart-drawer-body" id="cartDrawerBody">
+    <!-- Packs render here -->
+  </div>
+
+  <div class="cart-drawer-footer">
+    <button class="cart-add-pack" onclick="addPack()">
+      <span>+</span> Add Pack
+    </button>
+    <div class="cart-total-row">
+      <span>Total</span>
+      <span id="cartTotal">₦0</span>
+    </div>
+  <button class="cart-checkout" onclick="goToCheckout()">
+    Proceed to Checkout <span class="checkout-arrow">⋙</span>
+  </button>
+  </div>
+
+</div>
+</body>
+</html>

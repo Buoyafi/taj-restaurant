@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Match status bar and browser chrome to site background -->
+    <meta name="theme-color" content="#111110">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Menu Manager — TAJ Shawarma</title>
+    <link rel="stylesheet" href="Admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,700;1,700&family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="android-chrome" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="android-chrome" sizes="512x512" href="/android-chrome-512x512.png">
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+    <div class="topbar-brand">
+        <img src="images/logo.png" alt="TAJ" class="topbar-logo">
+        <span class="topbar-name">TAJ Shawarma</span>
+        <span class="topbar-badge">Menu Manager</span>
+    </div>
+    <div class="topbar-right">
+        <a href="index.html" class="topbar-link">
+            <i class="fa-solid fa-arrow-left"></i> Back to Site
+        </a>
+        <button class="topbar-link" id="logoutBtn" style="cursor:pointer;border:none;background:none;">
+            <i class="fa-solid fa-right-from-bracket"></i> Log Out
+        </button>
+    </div>
+</header>
+
+<!-- LAYOUT -->
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-section">Categories</div>
+
+        <button class="sidebar-btn active" data-cat="all">
+            <i class="fa-solid fa-border-all"></i> All Items
+            <span class="sidebar-count" id="countAll">0</span>
+        </button>
+        <button class="sidebar-btn" data-cat="Shawarma">
+            <i class="fa-solid fa-circle-dot"></i> Shawarma
+            <span class="sidebar-count" id="count-Shawarma">0</span>
+        </button>
+        <button class="sidebar-btn" data-cat="Toast">
+            <i class="fa-solid fa-circle-dot"></i> Toast
+            <span class="sidebar-count" id="count-Toast">0</span>
+        </button>
+        <button class="sidebar-btn" data-cat="Grilled Chicken">
+            <i class="fa-solid fa-circle-dot"></i> Grilled Chicken
+            <span class="sidebar-count" id="count-Grilled-Chicken">0</span>
+        </button>
+        <button class="sidebar-btn" data-cat="Wraps">
+            <i class="fa-solid fa-circle-dot"></i> Wraps
+            <span class="sidebar-count" id="count-Wraps">0</span>
+        </button>
+        <button class="sidebar-btn" data-cat="Crispy Chicken">
+            <i class="fa-solid fa-circle-dot"></i> Crispy Chicken
+            <span class="sidebar-count" id="count-Crispy-Chicken">0</span>
+        </button>
+        <button class="sidebar-btn" data-cat="Quesadillas">
+            <i class="fa-solid fa-circle-dot"></i> Quesadillas
+            <span class="sidebar-count" id="count-Quesadillas">0</span>
+        </button>
+        <button class="sidebar-btn" data-cat="Noodles">
+            <i class="fa-solid fa-circle-dot"></i> Noodles
+            <span class="sidebar-count" id="count-Noodles">0</span>
+        </button>
+        <button class="sidebar-btn" data-cat="Breakfast">
+            <i class="fa-solid fa-circle-dot"></i> Breakfast
+            <span class="sidebar-count" id="count-Breakfast">0</span>
+        </button>
+        <button class="sidebar-btn" data-cat="Smile Grill">
+            <i class="fa-solid fa-circle-dot"></i> Smile Grill
+            <span class="sidebar-count" id="count-Smile-Grill">0</span>
+        </button>
+        <button class="sidebar-btn" data-cat="Drinks">
+            <i class="fa-solid fa-circle-dot"></i> Drinks
+            <span class="sidebar-count" id="count-Drinks">0</span>
+        </button>
+
+        <div class="sidebar-section">Actions</div>
+        <button class="sidebar-btn" id="sidebarAddBtn">
+            <i class="fa-solid fa-plus"></i> Add New Item
+        </button>
+        <button class="sidebar-btn danger" id="sidebarResetBtn">
+            <i class="fa-solid fa-rotate-left"></i> Reset to Default
+        </button>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <div class="main-header">
+            <div>
+                <h1 class="main-title">Menu Items</h1>
+                <p class="main-subtitle">Changes save automatically and update the live menu</p>
+            </div>
+            <button class="add-btn" id="mainAddBtn">
+                <i class="fa-solid fa-plus"></i> Add Item
+            </button>
+        </div>
+
+        <!-- SEARCH -->
+        <div class="search-bar">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" placeholder="Search items...">
+        </div>
+
+        <!-- ITEMS GRID -->
+        <div class="items-grid" id="itemsGrid">
+            <!-- Rendered by JS -->
+        </div>
+
+    </main>
+</div>
+
+<!-- ─── ADD / EDIT MODAL ─── -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+
+        <div class="modal-header">
+            <h2 class="modal-title" id="modalTitle">Add New Item</h2>
+            <button class="modal-close" id="modalCloseX">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="modal-body">
+
+            <!-- IMAGE UPLOAD AREA -->
+            <div class="img-upload-area" id="imgUploadArea">
+                <div class="img-preview-wrap">
+                    <img id="imgPreview" src="" alt="" style="display:none;">
+                    <div class="img-placeholder" id="imgPlaceholder">
+                        <i class="fa-solid fa-image"></i>
+                        <span>Click to upload image</span>
+                        <small>or paste a URL below</small>
+                    </div>
+                </div>
+            </div>
+            <input type="file" id="imageFileInput" accept="image/*" style="display:none;">
+
+            <div class="form-row">
+                <div class="form-group full">
+                    <label>Image URL <span class="muted">(paste Unsplash or any direct link)</span></label>
+                    <input type="text" id="fieldImageUrl" placeholder="https://images.unsplash.com/...">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Item Name <span class="req">*</span></label>
+                    <input type="text" id="fieldName" placeholder="e.g. Chicken Shawarma">
+                </div>
+                <div class="form-group">
+                    <label>Variant <span class="muted">(optional)</span></label>
+                    <input type="text" id="fieldVariant" placeholder="e.g. Single, Double">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Category <span class="req">*</span></label>
+                    <select id="fieldCategory" onchange="handleCategoryChange()">
+                        <option value="">Select category</option>
+                        <option>Shawarma</option>
+                        <option>Toast</option>
+                        <option>Grilled Chicken</option>
+                        <option>Wraps</option>
+                        <option>Crispy Chicken</option>
+                        <option>Quesadillas</option>
+                        <option>Noodles</option>
+                        <option>Breakfast</option>
+                        <option>Smile Grill</option>
+                        <option>Drinks</option>
+                        <option value="__new__">+ Add New Category</option>
+                    </select>
+                    <input type="text" id="newCategoryInput" placeholder="Type new category name..."
+                        style="display:none; margin-top:8px;">
+                </div>
+                <div class="form-group">
+                    <label>Price (₦) <span class="req">*</span></label>
+                    <input type="number" id="fieldPrice" placeholder="e.g. 2500" min="0">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group full">
+                    <label>Description <span class="muted">(optional)</span></label>
+                    <textarea id="fieldDesc" rows="2" placeholder="Short description of the item"></textarea>
+                </div>
+            </div>
+
+            <div id="modalError" class="modal-error" style="display:none;">
+                Please fill in name, category and price. If adding a new category, type its name in the field below the dropdown.
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn-secondary" id="modalCancelBtn">Cancel</button>
+            <button class="btn-primary" id="modalSaveBtn">
+                <i class="fa-solid fa-plus"></i> Add Item
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<!-- ─── DELETE CONFIRM MODAL ─── -->
+<div class="modal-overlay" id="deleteOverlay">
+    <div class="modal small-modal">
+
+        <div class="modal-header">
+            <h2 class="modal-title">Delete Item?</h2>
+            <button class="modal-close" id="deleteCloseX">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="modal-body">
+            <p class="delete-msg">
+                Are you sure you want to delete
+                <strong id="deleteItemName"></strong>?
+                This cannot be undone.
+            </p>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn-secondary" id="deleteCancelBtn">Cancel</button>
+            <button class="btn-danger" id="confirmDeleteBtn">
+                <i class="fa-solid fa-trash"></i> Delete
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<!-- TOAST -->
+<div id="adminToast"></div>
+
+<script src="Admin.js"></script>
+</body>
+</html>

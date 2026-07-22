@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Match status bar and browser chrome to site background -->
+    <meta name="theme-color" content="#111110">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Checkout — Taj Shawarma</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,700;1,300;1,700&family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="android-chrome" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="android-chrome" sizes="512x512" href="/android-chrome-512x512.png">
+</head>
+<body class="checkout-page">
+    <!-- MOBILE BACK BUTTON -->
+    <a href="/" class="checkout-back-mobile">
+        <i class="fa-solid fa-arrow-left"></i> Back to Menu
+    </a>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <a href="/">
+        <img src="images/logo.png" alt="Taj Shawarma Logo" class="logo">
+    </a>
+    <nav>
+        <a href="index.html">← Back to Menu</a>
+    </nav>
+</header>
+
+<!-- CHECKOUT WRAPPER -->
+<div class="checkout-wrapper">
+
+    <div class="checkout-left">
+
+        <!-- ORDER SUMMARY -->
+        <div class="checkout-section">
+            <h2 class="checkout-heading">Your Order</h2>
+            <p class="checkout-subheading">Review and edit before confirming</p>
+
+            <div id="checkoutPacks">
+                <!-- Packs render here via JS -->
+            </div>
+
+            <div class="checkout-total-row">
+                <span>Total</span>
+                <span id="checkoutTotal">₦0</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="checkout-right">
+
+        <!-- CUSTOMER DETAILS FORM -->
+        <div class="checkout-section">
+            <h2 class="checkout-heading">Your Details</h2>
+            <p class="checkout-subheading">So we know who to deliver to</p>
+
+            <div class="checkout-form">
+
+                <div class="form-group">
+                    <label>Full Name <span class="required">*</span></label>
+                    <input type="text" id="customerName" placeholder="e.g. John Doe" />
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Number <span class="required">*</span></label>
+                    <input type="tel" id="customerPhone" placeholder="e.g. 08012345678" />
+                </div>
+
+                <div class="form-group" id="addressGroup">
+                    <label>Delivery Address <span class="required">*</span></label>
+                    <textarea id="customerAddress" rows="3" placeholder="e.g. 12 Oke-Ilewo Road, Abeokuta"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Delivery Type</label>
+                    <div class="delivery-options">
+                        <label class="delivery-option">
+                            <input type="radio" name="deliveryType" value="Delivery" checked onchange="toggleAddress()">
+                            <span>🛵 Delivery</span>
+                        </label>
+                        <label class="delivery-option">
+                            <input type="radio" name="deliveryType" value="Pickup" onchange="toggleAddress()">
+                            <span>🏪 Pickup</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Additional Notes</label>
+                    <textarea id="customerNotes" rows="2" placeholder="Any special instructions? (optional)"></textarea>
+                </div>
+
+                <div id="formError" class="form-error" style="display:none;">
+                    Please fill in your name, phone number and address.
+                </div>
+
+                <button class="confirm-btn" onclick="confirmOrder()">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Confirm Order on WhatsApp
+                    <span class="checkout-arrow">→</span>
+                </button>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="checkout.js"></script>
+</body>
+</html>
