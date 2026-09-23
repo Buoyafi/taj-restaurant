@@ -1,7 +1,7 @@
 // ─── LOAD CART FROM SESSION ───
 let cart = JSON.parse(sessionStorage.getItem('tajCart')) || [{ id: 1, items: [] }];
 
-const PHONE = '2347088639785';
+const PHONE = '2348156137303';
 
 // ─── RENDER ORDER SUMMARY ───
 function renderCheckoutPacks() {
