@@ -1,0 +1,16 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*:Zone.Identifier
+.vscode/
+.idea/
+
+# Netlify CLI
+.netlify/
+
+# Dependencies and builds (for the planned React rebuild)
+node_modules/
+dist/
+build/
+.env
+.env.*
