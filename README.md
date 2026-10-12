@@ -1,5 +1,11 @@
 # TAJ Shawarma
 
+<p align="center">
+  <a href="https://tajshawarmahub.com">
+    <img src="assets/taj-shawarma-preview.png" alt="TAJ Shawarma & Grill homepage" width="900">
+  </a>
+</p>
+
 Website for TAJ Shawarma, a shawarma and grill spot in Abeokuta, Nigeria.
 
 **Live site:** [tajshawarmahub.com](https://tajshawarmahub.com)
